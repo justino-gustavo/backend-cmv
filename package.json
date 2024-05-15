@@ -1,7 +1,15 @@
 {
   "name": "backend",
-  "module": "src/index.ts",
+  "module": "src/app/server.ts",
   "type": "module",
+  "scripts": {
+    "start": "bun src/app/server.ts",
+    "dev": "bun --watch src/app/server.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check "
+  },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
     "@types/bun": "latest",
@@ -18,6 +26,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@hono/graphql-server": "^0.4.3",
+    "hono": "^4.3.4",
     "uuid": "^9.0.1"
   }
 }
