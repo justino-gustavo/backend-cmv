@@ -9,7 +9,4 @@ export default {
   endOfLine: 'auto',
 
   plugins: ['prettier-plugin-organize-imports'],
-  importOrder: ['^@', '^[./]', '^.+\\.(js|jsx|ts|tsx)$'],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
 };

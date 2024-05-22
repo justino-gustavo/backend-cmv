@@ -12,7 +12,8 @@ generator graphql {
   provider                  = "typegraphql-prisma"
   emitIdAsIDType            = false
   emitTranspiledCode        = false
-  omitInputFieldsByDefault  = ["createdAt", "updatedAt"]
+  emitOnly                  = ["enums", "models", "relationResolvers", "outputs"] // ["enums", "models",  "crudResolvers", "relationResolvers", "inputs", "outputs"]
+  omitInputFieldsByDefault  = ["id", "createdAt", "updatedAt"]
   omitOutputFieldsByDefault = ["password"]
 }
 
@@ -29,7 +30,6 @@ model User {
   userName  String    @unique
   email     String?   @unique
   phone     String?   @unique
-  /// @TypeGraphQL.omit(output: true)
   password  String
   Product   Product[]
 }
