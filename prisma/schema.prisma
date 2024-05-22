@@ -10,16 +10,23 @@ generator client {
 
 generator graphql {
   provider                  = "typegraphql-prisma"
-  emitIdAsIDType            = false
+  output                    = "../src/app/graphql/generated"
+  emitIdAsIDType            = true
   emitTranspiledCode        = false
-  emitOnly                  = ["enums", "models", "relationResolvers", "outputs"] // ["enums", "models",  "crudResolvers", "relationResolvers", "inputs", "outputs"]
-  omitInputFieldsByDefault  = ["id", "createdAt", "updatedAt"]
+  omitInputFieldsByDefault  = ["createdAt", "updatedAt"]
   omitOutputFieldsByDefault = ["password"]
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:.dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  relationMode = "foreignKeys"
+}
+
+enum Role {
+  USER
+  OPERATOR
+  ADMIN
 }
 
 model User {
@@ -31,6 +38,7 @@ model User {
   email     String?   @unique
   phone     String?   @unique
   password  String
+  role      Role      @default(USER)
   Product   Product[]
 }
 

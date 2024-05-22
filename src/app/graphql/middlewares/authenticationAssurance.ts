@@ -1,8 +1,13 @@
+import { Role } from '#generated';
 import type { Context } from 'hono';
 import type { AuthChecker } from 'type-graphql';
 
-export const AuthenticationAssurance: AuthChecker<Context> = async ({ context }) => {
-  const user = context.get('jwtPayload');
+export const AuthenticationAssurance: AuthChecker<Context, Role> = async ({ context }, role) => {
+  const user = await context.get('jwtPayload');
 
-  return !!user;
+  if (!user) {
+    return false;
+  }
+
+  return role.includes(user.data.role);
 };
