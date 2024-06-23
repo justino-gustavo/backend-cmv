@@ -1,5 +1,5 @@
 // AuthService.ts
-// responsability: Implement the AuthService interface
+// responsibility: Implement the AuthService interface
 // design pattern: Service
 
 import { left, right, type Either } from '@core/errors/either';
@@ -84,7 +84,6 @@ export class AuthService implements IAuthService.default {
     if (checkRefreshPayload.data.role !== checkUser.value.role)
       return left(new Error('Invalid session'));
 
-    //@ts-ignore
     if (checkRefreshToken.isRight && checkRefreshPayload.valid) {
       const newAccessToken = await this.acessToken.generateToken({
         id: checkUser.value.id,
@@ -155,7 +154,7 @@ class TokenService implements IAuthService.Token.default {
       }
 
       this._payload = Object.assign(checkToken, { valid: true });
-      this._token = !!checkToken ? token : this._token;
+      this._token = checkToken ? token : this._token;
       return right(!!checkToken);
     } catch (error) {
       return left(new Error('Invalid token'));
