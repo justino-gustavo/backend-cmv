@@ -1,5 +1,5 @@
 // CreateProduct use case
-// responsability: create a new product
+// responsibility: create a new product
 // design pattern: Use Case
 
 import { product as regex } from '@config/regex';

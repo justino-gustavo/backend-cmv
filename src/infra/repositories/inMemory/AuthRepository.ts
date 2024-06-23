@@ -1,5 +1,5 @@
 // AuthRepository.ts
-// responsability: Implement the AuthRepository interface
+// responsibility: Implement the AuthRepository interface
 // design pattern: Repository
 
 import { left, right, type Either } from '@core/errors/either';

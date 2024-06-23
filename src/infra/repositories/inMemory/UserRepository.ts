@@ -1,5 +1,5 @@
 // UserRepository.ts
-// responsability: store and retrieve user data
+// responsibility: store and retrieve user data
 // design pattern: Repository
 
 import { User } from '@core/domain/entities';

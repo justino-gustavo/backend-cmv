@@ -1,5 +1,5 @@
 // CreateUser use case
-// responsability: create a new user
+// responsibility: create a new user
 // design pattern: Use Case
 
 import { user as regex } from '@config/regex';

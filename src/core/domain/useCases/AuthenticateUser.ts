@@ -1,5 +1,5 @@
-// AuthencateUser use case
-// responsability: authenticate a user
+// AuthenticateUser use case
+// responsibility: authenticate a user
 // design pattern: Use Case
 
 import { user as regex } from '@config/regex';
