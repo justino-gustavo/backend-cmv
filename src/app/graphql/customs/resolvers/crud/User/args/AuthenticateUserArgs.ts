@@ -1,5 +1,5 @@
+import { AuthenticateUserInput } from '@app/graphql/customs/resolvers/inputs/AuthenticateUserInput';
 import * as TypeGraphQL from 'type-graphql';
-import { AuthenticateUserInput } from '~/inputs/AuthenticateUserInput';
 
 @TypeGraphQL.ArgsType()
 export class AuthenticateUserArgs {

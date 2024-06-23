@@ -26,6 +26,22 @@
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
+    "noPropertyAccessFromIndexSignature": false,
+
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@app": ["./src/app"],
+
+      "@infra/*": ["./src/infra/*"],
+      "@infra": ["./src/infra"],
+
+      "@core/*": ["./src/core/*"],
+      "@core": ["./src/core"],
+
+      "@config/*": ["./src/core/config/*"],
+
+      "~/*": ["./src/*"],
+      "~": ["./src"]
+    }
   }
 }

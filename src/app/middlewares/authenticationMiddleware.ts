@@ -14,9 +14,7 @@ export const authenticationMiddleware: MiddlewareHandler = async (c, next) => {
   }
   try {
     payload = await jwt.verify(token as string, process.env.JWT_SECRET as string);
-  } catch {
-    // do nothing
-  }
+  } catch {}
 
   c.set('jwtPayload', payload);
 

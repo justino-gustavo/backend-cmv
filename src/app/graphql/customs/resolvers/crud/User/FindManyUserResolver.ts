@@ -1,9 +1,9 @@
-import { FindManyUserArgs, User } from '#generated';
+import { FindManyUserArgs, User } from '@app/graphql/generated';
 import {
   getPrismaFromContext,
   transformCountFieldIntoSelectRelationsCount,
   transformInfoIntoPrismaArgs,
-} from '#generated/helpers';
+} from '@app/graphql/generated/helpers';
 import type { GraphQLResolveInfo } from 'graphql';
 import * as TypeGraphQL from 'type-graphql';
 

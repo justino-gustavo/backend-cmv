@@ -1,8 +1,8 @@
-import { getPrismaFromContext } from '#generated/helpers';
+import { Auth } from '@app/graphql/customs/models/Auth';
+import { getPrismaFromContext } from '@app/graphql/generated/helpers';
 import type { PrismaClient } from '@prisma/client';
 import * as jwt from 'hono/jwt';
 import * as TypeGraphQL from 'type-graphql';
-import { Auth } from '~models/Auth';
 import { AuthenticateUserArgs } from './args/AuthenticateUserArgs';
 
 @TypeGraphQL.Resolver(_of => Auth)

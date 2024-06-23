@@ -36,7 +36,6 @@
     "graphql-fields": "^2.0.3",
     "graphql-scalars": "^1.23.0",
     "hono": "^4.3.4",
-    "type-graphql": "^2.0.0-rc.1",
-    "uuid": "^9.0.1"
+    "type-graphql": "^2.0.0-rc.1"
   }
 }
