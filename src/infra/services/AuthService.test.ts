@@ -19,7 +19,6 @@ describe('AuthService', () => {
   } as User;
 
   beforeEach(() => {
-    authRepo = new AuthRepository();
     authService = new AuthService(authRepo, userRepo);
   });
 
