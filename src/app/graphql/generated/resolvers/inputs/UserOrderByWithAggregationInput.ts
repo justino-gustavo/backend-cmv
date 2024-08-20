@@ -1,62 +1,59 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { SortOrderInput } from "../inputs/SortOrderInput";
-import { UserCountOrderByAggregateInput } from "../inputs/UserCountOrderByAggregateInput";
-import { UserMaxOrderByAggregateInput } from "../inputs/UserMaxOrderByAggregateInput";
-import { UserMinOrderByAggregateInput } from "../inputs/UserMinOrderByAggregateInput";
-import { SortOrder } from "../../enums/SortOrder";
+import * as TypeGraphQL from 'type-graphql';
+import { SortOrder } from '../../enums/SortOrder';
+import { SortOrderInput } from '../inputs/SortOrderInput';
+import { UserCountOrderByAggregateInput } from '../inputs/UserCountOrderByAggregateInput';
+import { UserMaxOrderByAggregateInput } from '../inputs/UserMaxOrderByAggregateInput';
+import { UserMinOrderByAggregateInput } from '../inputs/UserMinOrderByAggregateInput';
 
-@TypeGraphQL.InputType("UserOrderByWithAggregationInput", {})
+@TypeGraphQL.InputType('UserOrderByWithAggregationInput', {})
 export class UserOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
+    nullable: true,
   })
-  id?: "asc" | "desc" | undefined;
+  id?: 'asc' | 'desc' | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
+    nullable: true,
   })
-  name?: "asc" | "desc" | undefined;
+  name?: 'asc' | 'desc' | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
+    nullable: true,
   })
-  userName?: "asc" | "desc" | undefined;
+  userName?: 'asc' | 'desc' | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
-    nullable: true
+    nullable: true,
   })
   email?: SortOrderInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
-    nullable: true
+    nullable: true,
   })
   phone?: SortOrderInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
+    nullable: true,
   })
-  password?: "asc" | "desc" | undefined;
+  password?: 'asc' | 'desc' | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
-    nullable: true
+    nullable: true,
   })
-  role?: "asc" | "desc" | undefined;
+  role?: 'asc' | 'desc' | undefined;
 
   @TypeGraphQL.Field(_type => UserCountOrderByAggregateInput, {
-    nullable: true
+    nullable: true,
   })
   _count?: UserCountOrderByAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => UserMaxOrderByAggregateInput, {
-    nullable: true
+    nullable: true,
   })
   _max?: UserMaxOrderByAggregateInput | undefined;
 
   @TypeGraphQL.Field(_type => UserMinOrderByAggregateInput, {
-    nullable: true
+    nullable: true,
   })
   _min?: UserMinOrderByAggregateInput | undefined;
 }

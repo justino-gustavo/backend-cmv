@@ -1,31 +1,39 @@
-import * as TypeGraphQL from "type-graphql";
-import type { GraphQLResolveInfo } from "graphql";
-import { AggregateCustomerArgs } from "./args/AggregateCustomerArgs";
-import { CreateManyCustomerArgs } from "./args/CreateManyCustomerArgs";
-import { CreateOneCustomerArgs } from "./args/CreateOneCustomerArgs";
-import { DeleteManyCustomerArgs } from "./args/DeleteManyCustomerArgs";
-import { DeleteOneCustomerArgs } from "./args/DeleteOneCustomerArgs";
-import { FindFirstCustomerArgs } from "./args/FindFirstCustomerArgs";
-import { FindFirstCustomerOrThrowArgs } from "./args/FindFirstCustomerOrThrowArgs";
-import { FindManyCustomerArgs } from "./args/FindManyCustomerArgs";
-import { FindUniqueCustomerArgs } from "./args/FindUniqueCustomerArgs";
-import { FindUniqueCustomerOrThrowArgs } from "./args/FindUniqueCustomerOrThrowArgs";
-import { GroupByCustomerArgs } from "./args/GroupByCustomerArgs";
-import { UpdateManyCustomerArgs } from "./args/UpdateManyCustomerArgs";
-import { UpdateOneCustomerArgs } from "./args/UpdateOneCustomerArgs";
-import { UpsertOneCustomerArgs } from "./args/UpsertOneCustomerArgs";
-import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
-import { Customer } from "../../../models/Customer";
-import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
-import { AggregateCustomer } from "../../outputs/AggregateCustomer";
-import { CustomerGroupBy } from "../../outputs/CustomerGroupBy";
+import type { GraphQLResolveInfo } from 'graphql';
+import * as TypeGraphQL from 'type-graphql';
+import {
+  getPrismaFromContext,
+  transformCountFieldIntoSelectRelationsCount,
+  transformInfoIntoPrismaArgs,
+} from '../../../helpers';
+import { Customer } from '../../../models/Customer';
+import { AffectedRowsOutput } from '../../outputs/AffectedRowsOutput';
+import { AggregateCustomer } from '../../outputs/AggregateCustomer';
+import { CustomerGroupBy } from '../../outputs/CustomerGroupBy';
+import { AggregateCustomerArgs } from './args/AggregateCustomerArgs';
+import { CreateManyCustomerArgs } from './args/CreateManyCustomerArgs';
+import { CreateOneCustomerArgs } from './args/CreateOneCustomerArgs';
+import { DeleteManyCustomerArgs } from './args/DeleteManyCustomerArgs';
+import { DeleteOneCustomerArgs } from './args/DeleteOneCustomerArgs';
+import { FindFirstCustomerArgs } from './args/FindFirstCustomerArgs';
+import { FindFirstCustomerOrThrowArgs } from './args/FindFirstCustomerOrThrowArgs';
+import { FindManyCustomerArgs } from './args/FindManyCustomerArgs';
+import { FindUniqueCustomerArgs } from './args/FindUniqueCustomerArgs';
+import { FindUniqueCustomerOrThrowArgs } from './args/FindUniqueCustomerOrThrowArgs';
+import { GroupByCustomerArgs } from './args/GroupByCustomerArgs';
+import { UpdateManyCustomerArgs } from './args/UpdateManyCustomerArgs';
+import { UpdateOneCustomerArgs } from './args/UpdateOneCustomerArgs';
+import { UpsertOneCustomerArgs } from './args/UpsertOneCustomerArgs';
 
 @TypeGraphQL.Resolver(_of => Customer)
 export class CustomerCrudResolver {
   @TypeGraphQL.Query(_returns => AggregateCustomer, {
-    nullable: false
+    nullable: false,
   })
-  async aggregateCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: AggregateCustomerArgs): Promise<AggregateCustomer> {
+  async aggregateCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: AggregateCustomerArgs
+  ): Promise<AggregateCustomer> {
     return getPrismaFromContext(ctx).customer.aggregate({
       ...args,
       ...transformInfoIntoPrismaArgs(info),
@@ -33,9 +41,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async createManyCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: CreateManyCustomerArgs): Promise<AffectedRowsOutput> {
+  async createManyCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: CreateManyCustomerArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.createMany({
       ...args,
@@ -44,9 +56,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Customer, {
-    nullable: false
+    nullable: false,
   })
-  async createOneCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: CreateOneCustomerArgs): Promise<Customer> {
+  async createOneCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: CreateOneCustomerArgs
+  ): Promise<Customer> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.create({
       ...args,
@@ -55,9 +71,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async deleteManyCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: DeleteManyCustomerArgs): Promise<AffectedRowsOutput> {
+  async deleteManyCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: DeleteManyCustomerArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.deleteMany({
       ...args,
@@ -66,9 +86,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async deleteOneCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: DeleteOneCustomerArgs): Promise<Customer | null> {
+  async deleteOneCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: DeleteOneCustomerArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.delete({
       ...args,
@@ -77,9 +101,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async findFirstCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindFirstCustomerArgs): Promise<Customer | null> {
+  async findFirstCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindFirstCustomerArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.findFirst({
       ...args,
@@ -88,9 +116,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async findFirstCustomerOrThrow(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindFirstCustomerOrThrowArgs): Promise<Customer | null> {
+  async findFirstCustomerOrThrow(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindFirstCustomerOrThrowArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.findFirstOrThrow({
       ...args,
@@ -99,9 +131,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => [Customer], {
-    nullable: false
+    nullable: false,
   })
-  async customers(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindManyCustomerArgs): Promise<Customer[]> {
+  async customers(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindManyCustomerArgs
+  ): Promise<Customer[]> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.findMany({
       ...args,
@@ -110,9 +146,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async customer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindUniqueCustomerArgs): Promise<Customer | null> {
+  async customer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindUniqueCustomerArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.findUnique({
       ...args,
@@ -121,9 +161,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async getCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindUniqueCustomerOrThrowArgs): Promise<Customer | null> {
+  async getCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindUniqueCustomerOrThrowArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.findUniqueOrThrow({
       ...args,
@@ -132,9 +176,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => [CustomerGroupBy], {
-    nullable: false
+    nullable: false,
   })
-  async groupByCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: GroupByCustomerArgs): Promise<CustomerGroupBy[]> {
+  async groupByCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: GroupByCustomerArgs
+  ): Promise<CustomerGroupBy[]> {
     const { _count, _avg, _sum, _min, _max } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.groupBy({
       ...args,
@@ -145,9 +193,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async updateManyCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpdateManyCustomerArgs): Promise<AffectedRowsOutput> {
+  async updateManyCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpdateManyCustomerArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.updateMany({
       ...args,
@@ -156,9 +208,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Customer, {
-    nullable: true
+    nullable: true,
   })
-  async updateOneCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpdateOneCustomerArgs): Promise<Customer | null> {
+  async updateOneCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpdateOneCustomerArgs
+  ): Promise<Customer | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.update({
       ...args,
@@ -167,9 +223,13 @@ export class CustomerCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Customer, {
-    nullable: false
+    nullable: false,
   })
-  async upsertOneCustomer(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpsertOneCustomerArgs): Promise<Customer> {
+  async upsertOneCustomer(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpsertOneCustomerArgs
+  ): Promise<Customer> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).customer.upsert({
       ...args,

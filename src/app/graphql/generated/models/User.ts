@@ -1,53 +1,50 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../scalars";
-import { Product } from "../models/Product";
-import { Role } from "../enums/Role";
+import * as TypeGraphQL from 'type-graphql';
+import { Role } from '../enums/Role';
+import { Product } from '../models/Product';
 
-@TypeGraphQL.ObjectType("User", {})
+@TypeGraphQL.ObjectType('User', {})
 export class User {
   @TypeGraphQL.Field(_type => TypeGraphQL.ID, {
-    nullable: false
+    nullable: false,
   })
   id!: string;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   createdAt!: Date;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   updatedAt!: Date;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   name!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   userName!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   email?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   phone?: string | null;
 
   password?: string;
 
   @TypeGraphQL.Field(_type => Role, {
-    nullable: false
+    nullable: false,
   })
-  role!: "USER" | "OPERATOR" | "ADMIN";
+  role!: 'USER' | 'OPERATOR' | 'ADMIN';
 
   Product?: Product[];
 }

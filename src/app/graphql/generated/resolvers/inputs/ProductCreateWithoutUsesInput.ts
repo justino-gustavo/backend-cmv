@@ -1,43 +1,40 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { ProductCreateNestedManyWithoutUsesInput } from "../inputs/ProductCreateNestedManyWithoutUsesInput";
+import * as TypeGraphQL from 'type-graphql';
+import { ProductCreateNestedManyWithoutUsesInput } from '../inputs/ProductCreateNestedManyWithoutUsesInput';
 
-@TypeGraphQL.InputType("ProductCreateWithoutUsesInput", {})
+@TypeGraphQL.InputType('ProductCreateWithoutUsesInput', {})
 export class ProductCreateWithoutUsesInput {
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   name!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   description!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   batch!: string;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   producedAt!: Date;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   expiredAt!: Date;
 
   @TypeGraphQL.Field(_type => ProductCreateNestedManyWithoutUsesInput, {
-    nullable: true
+    nullable: true,
   })
   usedIn?: typeof ProductCreateNestedManyWithoutUsesInput | undefined;
 }

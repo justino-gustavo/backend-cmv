@@ -1,15 +1,23 @@
-import * as TypeGraphQL from "type-graphql";
-import type { GraphQLResolveInfo } from "graphql";
-import { FindFirstUserArgs } from "./args/FindFirstUserArgs";
-import { User } from "../../../models/User";
-import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
+import type { GraphQLResolveInfo } from 'graphql';
+import * as TypeGraphQL from 'type-graphql';
+import {
+  getPrismaFromContext,
+  transformCountFieldIntoSelectRelationsCount,
+  transformInfoIntoPrismaArgs,
+} from '../../../helpers';
+import { User } from '../../../models/User';
+import { FindFirstUserArgs } from './args/FindFirstUserArgs';
 
 @TypeGraphQL.Resolver(_of => User)
 export class FindFirstUserResolver {
   @TypeGraphQL.Query(_returns => User, {
-    nullable: true
+    nullable: true,
   })
-  async findFirstUser(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindFirstUserArgs): Promise<User | null> {
+  async findFirstUser(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindFirstUserArgs
+  ): Promise<User | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).user.findFirst({
       ...args,

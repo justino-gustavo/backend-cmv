@@ -1,66 +1,63 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { ProductListRelationFilter } from "../inputs/ProductListRelationFilter";
-import { ProductWhereInput } from "../inputs/ProductWhereInput";
-import { StringFilter } from "../inputs/StringFilter";
+import * as TypeGraphQL from 'type-graphql';
+import { DateTimeFilter } from '../inputs/DateTimeFilter';
+import { ProductListRelationFilter } from '../inputs/ProductListRelationFilter';
+import { ProductWhereInput } from '../inputs/ProductWhereInput';
+import { StringFilter } from '../inputs/StringFilter';
 
-@TypeGraphQL.InputType("ProductWhereUniqueInput", {})
+@TypeGraphQL.InputType('ProductWhereUniqueInput', {})
 export class ProductWhereUniqueInput {
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   batch?: string | undefined;
 
   @TypeGraphQL.Field(_type => [ProductWhereInput], {
-    nullable: true
+    nullable: true,
   })
   AND?: ProductWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductWhereInput], {
-    nullable: true
+    nullable: true,
   })
   OR?: ProductWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductWhereInput], {
-    nullable: true
+    nullable: true,
   })
   NOT?: ProductWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   name?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   description?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
-    nullable: true
+    nullable: true,
   })
   producedAt?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
-    nullable: true
+    nullable: true,
   })
   expiredAt?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => ProductListRelationFilter, {
-    nullable: true
+    nullable: true,
   })
   uses?: ProductListRelationFilter | undefined;
 
   @TypeGraphQL.Field(_type => ProductListRelationFilter, {
-    nullable: true
+    nullable: true,
   })
   usedIn?: ProductListRelationFilter | undefined;
 }

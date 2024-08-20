@@ -1,1 +1,1 @@
-export { ProductRelationsResolver } from "./Product/ProductRelationsResolver";
+export { ProductRelationsResolver } from './Product/ProductRelationsResolver';

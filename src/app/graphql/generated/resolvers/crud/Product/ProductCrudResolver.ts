@@ -1,31 +1,39 @@
-import * as TypeGraphQL from "type-graphql";
-import type { GraphQLResolveInfo } from "graphql";
-import { AggregateProductArgs } from "./args/AggregateProductArgs";
-import { CreateManyProductArgs } from "./args/CreateManyProductArgs";
-import { CreateOneProductArgs } from "./args/CreateOneProductArgs";
-import { DeleteManyProductArgs } from "./args/DeleteManyProductArgs";
-import { DeleteOneProductArgs } from "./args/DeleteOneProductArgs";
-import { FindFirstProductArgs } from "./args/FindFirstProductArgs";
-import { FindFirstProductOrThrowArgs } from "./args/FindFirstProductOrThrowArgs";
-import { FindManyProductArgs } from "./args/FindManyProductArgs";
-import { FindUniqueProductArgs } from "./args/FindUniqueProductArgs";
-import { FindUniqueProductOrThrowArgs } from "./args/FindUniqueProductOrThrowArgs";
-import { GroupByProductArgs } from "./args/GroupByProductArgs";
-import { UpdateManyProductArgs } from "./args/UpdateManyProductArgs";
-import { UpdateOneProductArgs } from "./args/UpdateOneProductArgs";
-import { UpsertOneProductArgs } from "./args/UpsertOneProductArgs";
-import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
-import { Product } from "../../../models/Product";
-import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
-import { AggregateProduct } from "../../outputs/AggregateProduct";
-import { ProductGroupBy } from "../../outputs/ProductGroupBy";
+import type { GraphQLResolveInfo } from 'graphql';
+import * as TypeGraphQL from 'type-graphql';
+import {
+  getPrismaFromContext,
+  transformCountFieldIntoSelectRelationsCount,
+  transformInfoIntoPrismaArgs,
+} from '../../../helpers';
+import { Product } from '../../../models/Product';
+import { AffectedRowsOutput } from '../../outputs/AffectedRowsOutput';
+import { AggregateProduct } from '../../outputs/AggregateProduct';
+import { ProductGroupBy } from '../../outputs/ProductGroupBy';
+import { AggregateProductArgs } from './args/AggregateProductArgs';
+import { CreateManyProductArgs } from './args/CreateManyProductArgs';
+import { CreateOneProductArgs } from './args/CreateOneProductArgs';
+import { DeleteManyProductArgs } from './args/DeleteManyProductArgs';
+import { DeleteOneProductArgs } from './args/DeleteOneProductArgs';
+import { FindFirstProductArgs } from './args/FindFirstProductArgs';
+import { FindFirstProductOrThrowArgs } from './args/FindFirstProductOrThrowArgs';
+import { FindManyProductArgs } from './args/FindManyProductArgs';
+import { FindUniqueProductArgs } from './args/FindUniqueProductArgs';
+import { FindUniqueProductOrThrowArgs } from './args/FindUniqueProductOrThrowArgs';
+import { GroupByProductArgs } from './args/GroupByProductArgs';
+import { UpdateManyProductArgs } from './args/UpdateManyProductArgs';
+import { UpdateOneProductArgs } from './args/UpdateOneProductArgs';
+import { UpsertOneProductArgs } from './args/UpsertOneProductArgs';
 
 @TypeGraphQL.Resolver(_of => Product)
 export class ProductCrudResolver {
   @TypeGraphQL.Query(_returns => AggregateProduct, {
-    nullable: false
+    nullable: false,
   })
-  async aggregateProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: AggregateProductArgs): Promise<AggregateProduct> {
+  async aggregateProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: AggregateProductArgs
+  ): Promise<AggregateProduct> {
     return getPrismaFromContext(ctx).product.aggregate({
       ...args,
       ...transformInfoIntoPrismaArgs(info),
@@ -33,9 +41,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async createManyProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: CreateManyProductArgs): Promise<AffectedRowsOutput> {
+  async createManyProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: CreateManyProductArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.createMany({
       ...args,
@@ -44,9 +56,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Product, {
-    nullable: false
+    nullable: false,
   })
-  async createOneProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: CreateOneProductArgs): Promise<Product> {
+  async createOneProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: CreateOneProductArgs
+  ): Promise<Product> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.create({
       ...args,
@@ -55,9 +71,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async deleteManyProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: DeleteManyProductArgs): Promise<AffectedRowsOutput> {
+  async deleteManyProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: DeleteManyProductArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.deleteMany({
       ...args,
@@ -66,9 +86,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async deleteOneProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: DeleteOneProductArgs): Promise<Product | null> {
+  async deleteOneProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: DeleteOneProductArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.delete({
       ...args,
@@ -77,9 +101,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async findFirstProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindFirstProductArgs): Promise<Product | null> {
+  async findFirstProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindFirstProductArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.findFirst({
       ...args,
@@ -88,9 +116,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async findFirstProductOrThrow(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindFirstProductOrThrowArgs): Promise<Product | null> {
+  async findFirstProductOrThrow(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindFirstProductOrThrowArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.findFirstOrThrow({
       ...args,
@@ -99,9 +131,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => [Product], {
-    nullable: false
+    nullable: false,
   })
-  async products(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindManyProductArgs): Promise<Product[]> {
+  async products(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindManyProductArgs
+  ): Promise<Product[]> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.findMany({
       ...args,
@@ -110,9 +146,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async product(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindUniqueProductArgs): Promise<Product | null> {
+  async product(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindUniqueProductArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.findUnique({
       ...args,
@@ -121,9 +161,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async getProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: FindUniqueProductOrThrowArgs): Promise<Product | null> {
+  async getProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: FindUniqueProductOrThrowArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.findUniqueOrThrow({
       ...args,
@@ -132,9 +176,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Query(_returns => [ProductGroupBy], {
-    nullable: false
+    nullable: false,
   })
-  async groupByProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: GroupByProductArgs): Promise<ProductGroupBy[]> {
+  async groupByProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: GroupByProductArgs
+  ): Promise<ProductGroupBy[]> {
     const { _count, _avg, _sum, _min, _max } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.groupBy({
       ...args,
@@ -145,9 +193,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => AffectedRowsOutput, {
-    nullable: false
+    nullable: false,
   })
-  async updateManyProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpdateManyProductArgs): Promise<AffectedRowsOutput> {
+  async updateManyProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpdateManyProductArgs
+  ): Promise<AffectedRowsOutput> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.updateMany({
       ...args,
@@ -156,9 +208,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Product, {
-    nullable: true
+    nullable: true,
   })
-  async updateOneProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpdateOneProductArgs): Promise<Product | null> {
+  async updateOneProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpdateOneProductArgs
+  ): Promise<Product | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.update({
       ...args,
@@ -167,9 +223,13 @@ export class ProductCrudResolver {
   }
 
   @TypeGraphQL.Mutation(_returns => Product, {
-    nullable: false
+    nullable: false,
   })
-  async upsertOneProduct(@TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: UpsertOneProductArgs): Promise<Product> {
+  async upsertOneProduct(
+    @TypeGraphQL.Ctx() ctx: any,
+    @TypeGraphQL.Info() info: GraphQLResolveInfo,
+    @TypeGraphQL.Args() args: UpsertOneProductArgs
+  ): Promise<Product> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).product.upsert({
       ...args,

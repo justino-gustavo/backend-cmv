@@ -8,18 +8,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator graphql {
-  provider                  = "typegraphql-prisma"
-  output                    = "../src/app/graphql/generated"
-  emitIdAsIDType            = true
-  emitTranspiledCode        = false
-  omitInputFieldsByDefault  = ["createdAt", "updatedAt"]
-  omitOutputFieldsByDefault = ["password"]
-}
+// generator graphql {
+//   provider                  = "typegraphql-prisma"
+//   output                    = "../src/app/graphql/generated"
+//   emitIdAsIDType            = true
+//   emitTranspiledCode        = false
+//   omitInputFieldsByDefault  = ["createdAt", "updatedAt"]
+//   omitOutputFieldsByDefault = ["password"]
+// }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
   relationMode = "foreignKeys"
 }
 

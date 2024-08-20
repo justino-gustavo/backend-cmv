@@ -1,54 +1,51 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
-import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
+import * as TypeGraphQL from 'type-graphql';
+import { DateTimeWithAggregatesFilter } from '../inputs/DateTimeWithAggregatesFilter';
+import { StringWithAggregatesFilter } from '../inputs/StringWithAggregatesFilter';
 
-@TypeGraphQL.InputType("ProductScalarWhereWithAggregatesInput", {})
+@TypeGraphQL.InputType('ProductScalarWhereWithAggregatesInput', {})
 export class ProductScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => [ProductScalarWhereWithAggregatesInput], {
-    nullable: true
+    nullable: true,
   })
   AND?: ProductScalarWhereWithAggregatesInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductScalarWhereWithAggregatesInput], {
-    nullable: true
+    nullable: true,
   })
   OR?: ProductScalarWhereWithAggregatesInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductScalarWhereWithAggregatesInput], {
-    nullable: true
+    nullable: true,
   })
   NOT?: ProductScalarWhereWithAggregatesInput[] | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   id?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   name?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   description?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   batch?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   producedAt?: DateTimeWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
-    nullable: true
+    nullable: true,
   })
   expiredAt?: DateTimeWithAggregatesFilter | undefined;
 }

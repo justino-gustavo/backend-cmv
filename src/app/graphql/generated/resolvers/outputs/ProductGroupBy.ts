@@ -1,70 +1,67 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { ProductCountAggregate } from "../outputs/ProductCountAggregate";
-import { ProductMaxAggregate } from "../outputs/ProductMaxAggregate";
-import { ProductMinAggregate } from "../outputs/ProductMinAggregate";
+import * as TypeGraphQL from 'type-graphql';
+import { ProductCountAggregate } from '../outputs/ProductCountAggregate';
+import { ProductMaxAggregate } from '../outputs/ProductMaxAggregate';
+import { ProductMinAggregate } from '../outputs/ProductMinAggregate';
 
-@TypeGraphQL.ObjectType("ProductGroupBy", {})
+@TypeGraphQL.ObjectType('ProductGroupBy', {})
 export class ProductGroupBy {
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   id!: string;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   createdAt!: Date;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   updatedAt!: Date;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   name!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   description!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   batch!: string;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   producedAt!: Date;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   expiredAt!: Date;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   userId!: string;
 
   @TypeGraphQL.Field(_type => ProductCountAggregate, {
-    nullable: true
+    nullable: true,
   })
   _count!: ProductCountAggregate | null;
 
   @TypeGraphQL.Field(_type => ProductMinAggregate, {
-    nullable: true
+    nullable: true,
   })
   _min!: ProductMinAggregate | null;
 
   @TypeGraphQL.Field(_type => ProductMaxAggregate, {
-    nullable: true
+    nullable: true,
   })
   _max!: ProductMaxAggregate | null;
 }

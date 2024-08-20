@@ -1,55 +1,52 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { CustomerCountAggregate } from "../outputs/CustomerCountAggregate";
-import { CustomerMaxAggregate } from "../outputs/CustomerMaxAggregate";
-import { CustomerMinAggregate } from "../outputs/CustomerMinAggregate";
+import * as TypeGraphQL from 'type-graphql';
+import { CustomerCountAggregate } from '../outputs/CustomerCountAggregate';
+import { CustomerMaxAggregate } from '../outputs/CustomerMaxAggregate';
+import { CustomerMinAggregate } from '../outputs/CustomerMinAggregate';
 
-@TypeGraphQL.ObjectType("CustomerGroupBy", {})
+@TypeGraphQL.ObjectType('CustomerGroupBy', {})
 export class CustomerGroupBy {
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   id!: string;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: false
+    nullable: false,
   })
   createdAt!: Date;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   name!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   email!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   phone!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   address!: string | null;
 
   @TypeGraphQL.Field(_type => CustomerCountAggregate, {
-    nullable: true
+    nullable: true,
   })
   _count!: CustomerCountAggregate | null;
 
   @TypeGraphQL.Field(_type => CustomerMinAggregate, {
-    nullable: true
+    nullable: true,
   })
   _min!: CustomerMinAggregate | null;
 
   @TypeGraphQL.Field(_type => CustomerMaxAggregate, {
-    nullable: true
+    nullable: true,
   })
   _max!: CustomerMaxAggregate | null;
 }

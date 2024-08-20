@@ -1,21 +1,25 @@
-import * as crudResolversImport from "./resolvers/crud/resolvers-crud.index";
-import * as relationResolversImport from "./resolvers/relations/resolvers.index";
-import { NonEmptyArray } from "type-graphql";
+import { NonEmptyArray } from 'type-graphql';
+import * as crudResolversImport from './resolvers/crud/resolvers-crud.index';
+import * as relationResolversImport from './resolvers/relations/resolvers.index';
 
-export * from "./enums";
-export * from "./models";
-export * from "./resolvers/crud";
+export * from './enums';
+export * from './models';
+export * from './resolvers/crud';
 
-export const crudResolvers = Object.values(crudResolversImport) as unknown as NonEmptyArray<Function>;
+export const crudResolvers = Object.values(
+  crudResolversImport
+) as unknown as NonEmptyArray<Function>;
 
-export * from "./resolvers/relations";
+export * from './resolvers/relations';
 
-export const relationResolvers = Object.values(relationResolversImport) as unknown as NonEmptyArray<Function>;
+export const relationResolvers = Object.values(
+  relationResolversImport
+) as unknown as NonEmptyArray<Function>;
 
-export * from "./resolvers/inputs";
-export * from "./resolvers/outputs";
-export * from "./enhance";
-export * from "./scalars";
+export * from './enhance';
+export * from './resolvers/inputs';
+export * from './resolvers/outputs';
+export * from './scalars';
 
 export const resolvers = [
   ...crudResolvers,

@@ -1,11 +1,10 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { CustomerWhereUniqueInput } from "../../../inputs/CustomerWhereUniqueInput";
+import * as TypeGraphQL from 'type-graphql';
+import { CustomerWhereUniqueInput } from '../../../inputs/CustomerWhereUniqueInput';
 
 @TypeGraphQL.ArgsType()
 export class FindUniqueCustomerOrThrowArgs {
   @TypeGraphQL.Field(_type => CustomerWhereUniqueInput, {
-    nullable: false
+    nullable: false,
   })
   where!: CustomerWhereUniqueInput;
 }

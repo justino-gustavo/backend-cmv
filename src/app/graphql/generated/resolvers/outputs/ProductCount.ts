@@ -1,28 +1,31 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { ProductCountUsedInArgs } from "./args/ProductCountUsedInArgs";
-import { ProductCountUsesArgs } from "./args/ProductCountUsesArgs";
+import * as TypeGraphQL from 'type-graphql';
+import { ProductCountUsedInArgs } from './args/ProductCountUsedInArgs';
+import { ProductCountUsesArgs } from './args/ProductCountUsesArgs';
 
-@TypeGraphQL.ObjectType("ProductCount", {})
+@TypeGraphQL.ObjectType('ProductCount', {})
 export class ProductCount {
   uses!: number;
   usedIn!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    name: "uses",
-    nullable: false
+    name: 'uses',
+    nullable: false,
   })
-  getUses(@TypeGraphQL.Root() root: ProductCount, @TypeGraphQL.Args() args: ProductCountUsesArgs): number {
+  getUses(
+    @TypeGraphQL.Root() root: ProductCount,
+    @TypeGraphQL.Args() args: ProductCountUsesArgs
+  ): number {
     return root.uses;
   }
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    name: "usedIn",
-    nullable: false
+    name: 'usedIn',
+    nullable: false,
   })
-  getUsedIn(@TypeGraphQL.Root() root: ProductCount, @TypeGraphQL.Args() args: ProductCountUsedInArgs): number {
+  getUsedIn(
+    @TypeGraphQL.Root() root: ProductCount,
+    @TypeGraphQL.Args() args: ProductCountUsedInArgs
+  ): number {
     return root.usedIn;
   }
 }

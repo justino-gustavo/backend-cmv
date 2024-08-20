@@ -1,54 +1,51 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { StringFilter } from "../inputs/StringFilter";
+import * as TypeGraphQL from 'type-graphql';
+import { DateTimeFilter } from '../inputs/DateTimeFilter';
+import { StringFilter } from '../inputs/StringFilter';
 
-@TypeGraphQL.InputType("ProductScalarWhereInput", {})
+@TypeGraphQL.InputType('ProductScalarWhereInput', {})
 export class ProductScalarWhereInput {
   @TypeGraphQL.Field(_type => [ProductScalarWhereInput], {
-    nullable: true
+    nullable: true,
   })
   AND?: ProductScalarWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductScalarWhereInput], {
-    nullable: true
+    nullable: true,
   })
   OR?: ProductScalarWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => [ProductScalarWhereInput], {
-    nullable: true
+    nullable: true,
   })
   NOT?: ProductScalarWhereInput[] | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   id?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   name?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   description?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
-    nullable: true
+    nullable: true,
   })
   batch?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
-    nullable: true
+    nullable: true,
   })
   producedAt?: DateTimeFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
-    nullable: true
+    nullable: true,
   })
   expiredAt?: DateTimeFilter | undefined;
 }

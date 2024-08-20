@@ -1,53 +1,50 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { Role } from "../../enums/Role";
+import * as TypeGraphQL from 'type-graphql';
+import { Role } from '../../enums/Role';
 
-@TypeGraphQL.ObjectType("UserMinAggregate", {})
+@TypeGraphQL.ObjectType('UserMinAggregate', {})
 export class UserMinAggregate {
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   id!: string | null;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: true
+    nullable: true,
   })
   createdAt!: Date | null;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: true
+    nullable: true,
   })
   updatedAt!: Date | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   name!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   userName!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   email!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   phone!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   password!: string | null;
 
   @TypeGraphQL.Field(_type => Role, {
-    nullable: true
+    nullable: true,
   })
-  role!: "USER" | "OPERATOR" | "ADMIN" | null;
+  role!: 'USER' | 'OPERATOR' | 'ADMIN' | null;
 }

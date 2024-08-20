@@ -1,39 +1,50 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { UserOrderByWithRelationInput } from "../../../inputs/UserOrderByWithRelationInput";
-import { UserWhereInput } from "../../../inputs/UserWhereInput";
-import { UserWhereUniqueInput } from "../../../inputs/UserWhereUniqueInput";
-import { UserScalarFieldEnum } from "../../../../enums/UserScalarFieldEnum";
+import * as TypeGraphQL from 'type-graphql';
+import { UserScalarFieldEnum } from '../../../../enums/UserScalarFieldEnum';
+import { UserOrderByWithRelationInput } from '../../../inputs/UserOrderByWithRelationInput';
+import { UserWhereInput } from '../../../inputs/UserWhereInput';
+import { UserWhereUniqueInput } from '../../../inputs/UserWhereUniqueInput';
 
 @TypeGraphQL.ArgsType()
 export class FindFirstUserOrThrowArgs {
   @TypeGraphQL.Field(_type => UserWhereInput, {
-    nullable: true
+    nullable: true,
   })
   where?: UserWhereInput | undefined;
 
   @TypeGraphQL.Field(_type => [UserOrderByWithRelationInput], {
-    nullable: true
+    nullable: true,
   })
   orderBy?: UserOrderByWithRelationInput[] | undefined;
 
   @TypeGraphQL.Field(_type => UserWhereUniqueInput, {
-    nullable: true
+    nullable: true,
   })
   cursor?: UserWhereUniqueInput | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+    nullable: true,
   })
   take?: number | undefined;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: true
+    nullable: true,
   })
   skip?: number | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarFieldEnum], {
-    nullable: true
+    nullable: true,
   })
-  distinct?: Array<"id" | "createdAt" | "updatedAt" | "name" | "userName" | "email" | "phone" | "password" | "role"> | undefined;
+  distinct?:
+    | Array<
+        | 'id'
+        | 'createdAt'
+        | 'updatedAt'
+        | 'name'
+        | 'userName'
+        | 'email'
+        | 'phone'
+        | 'password'
+        | 'role'
+      >
+    | undefined;
 }

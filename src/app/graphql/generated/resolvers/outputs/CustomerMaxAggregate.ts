@@ -1,37 +1,34 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
+import * as TypeGraphQL from 'type-graphql';
 
-@TypeGraphQL.ObjectType("CustomerMaxAggregate", {})
+@TypeGraphQL.ObjectType('CustomerMaxAggregate', {})
 export class CustomerMaxAggregate {
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   id!: string | null;
 
   @TypeGraphQL.Field(_type => Date, {
-    nullable: true
+    nullable: true,
   })
   createdAt!: Date | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   name!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   email!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   phone!: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   address!: string | null;
 }

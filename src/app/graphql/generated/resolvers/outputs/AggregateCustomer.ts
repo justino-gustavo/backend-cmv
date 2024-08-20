@@ -1,25 +1,22 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { CustomerCountAggregate } from "../outputs/CustomerCountAggregate";
-import { CustomerMaxAggregate } from "../outputs/CustomerMaxAggregate";
-import { CustomerMinAggregate } from "../outputs/CustomerMinAggregate";
+import * as TypeGraphQL from 'type-graphql';
+import { CustomerCountAggregate } from '../outputs/CustomerCountAggregate';
+import { CustomerMaxAggregate } from '../outputs/CustomerMaxAggregate';
+import { CustomerMinAggregate } from '../outputs/CustomerMinAggregate';
 
-@TypeGraphQL.ObjectType("AggregateCustomer", {})
+@TypeGraphQL.ObjectType('AggregateCustomer', {})
 export class AggregateCustomer {
   @TypeGraphQL.Field(_type => CustomerCountAggregate, {
-    nullable: true
+    nullable: true,
   })
   _count!: CustomerCountAggregate | null;
 
   @TypeGraphQL.Field(_type => CustomerMinAggregate, {
-    nullable: true
+    nullable: true,
   })
   _min!: CustomerMinAggregate | null;
 
   @TypeGraphQL.Field(_type => CustomerMaxAggregate, {
-    nullable: true
+    nullable: true,
   })
   _max!: CustomerMaxAggregate | null;
 }

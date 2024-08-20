@@ -1,5 +1,5 @@
-import type { Customer } from "./Customer";
-import type { Product } from "./Product";
+import type { Customer } from './Customer';
+import type { Product } from './Product';
 
 export class Order {
   id: string;

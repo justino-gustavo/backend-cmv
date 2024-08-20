@@ -1,2 +1,2 @@
-export { ProductUsedInArgs } from "./ProductUsedInArgs";
-export { ProductUsesArgs } from "./ProductUsesArgs";
+export { ProductUsedInArgs } from './ProductUsedInArgs';
+export { ProductUsesArgs } from './ProductUsesArgs';

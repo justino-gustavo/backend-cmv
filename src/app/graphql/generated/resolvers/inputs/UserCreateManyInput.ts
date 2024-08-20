@@ -1,43 +1,40 @@
-import * as TypeGraphQL from "type-graphql";
-import * as GraphQLScalars from "graphql-scalars";
-import { Prisma } from "@prisma/client";
-import { DecimalJSScalar } from "../../scalars";
-import { Role } from "../../enums/Role";
+import * as TypeGraphQL from 'type-graphql';
+import { Role } from '../../enums/Role';
 
-@TypeGraphQL.InputType("UserCreateManyInput", {})
+@TypeGraphQL.InputType('UserCreateManyInput', {})
 export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   id?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   name!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   userName!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   email?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: true
+    nullable: true,
   })
   phone?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: false,
   })
   password!: string;
 
   @TypeGraphQL.Field(_type => Role, {
-    nullable: true
+    nullable: true,
   })
-  role?: "USER" | "OPERATOR" | "ADMIN" | undefined;
+  role?: 'USER' | 'OPERATOR' | 'ADMIN' | undefined;
 }

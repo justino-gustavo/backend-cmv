@@ -1,0 +1,22 @@
+version: 3.8
+
+services:
+  bun:
+    image: oven/bun:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/workspace:rw,z
+    working_dir: /workspace
+    command: /bin/bash
+    restart: always
+    depends_on:
+      - db
+    tty: true
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    restart: always
